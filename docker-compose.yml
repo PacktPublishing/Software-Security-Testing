@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+    common_attacks:
+        image: common_attacks:1.1
+        hostname: common_attacks
+        container_name: common_attacks
+        ports:
+            - "80:80"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.2
+
+    session_puzzling:
+        image: session_puzzling:latest
+        hostname: session_puzzle
+        container_name: session_puzzle
+        ports:
+            - "5000:5000"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.3
+
+    padding_oracle:
+        image: oracle_padding:latest
+        hostname: oracle_padding
+        container_name: oracle_padding
+        ports:
+            - "5001:5001"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.4
+
+    ldap:
+        image: ldap_injection:latest
+        hostname: ldap_injection
+        container_name: ldap_injection
+        ports:
+            - "5002:5002"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.5
+
+    cors:
+        image: cors:latest
+        hostname: cors_attack
+        container_name: cors_attack
+        ports:
+            - "5003:5003"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.6
+
+    url_redirect:
+        image: url_redirect:1.0
+        hostname: redirect
+        container_name: redirect
+        ports:
+            - "5004:5004"
+        networks:
+            lab-net:
+                ipv4_address: 172.20.0.7
+
+networks:
+    lab-net:
+        ipam:
+            config:
+                - subnet: 172.20.0.0/16
