@@ -4,10 +4,10 @@ All labs in this repository are run using Docker containers. To download Docker,
 # Cloning the repository
 To clone the repository locally use the following command:
 ```
-git clone https://github.com/PacktPublishing/Software-Security-Testing.git
+git lfs clone https://github.com/PacktPublishing/Software-Security-Testing.git
 ```
 
-If you do not have Git installed, refer to their installation pages: https://github.com/git-guides/install-git.
+If you do not have Git installed, refer to their installation pages: https://github.com/git-guides/install-git. Make sure to install git-lfs to ensure all files are properly cloned: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage.
 
 # Running the lab using the run.sh and docker-compose files
 
