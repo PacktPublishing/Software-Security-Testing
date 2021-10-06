@@ -55,7 +55,7 @@ docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 LDAP
 docker run --name cors_attack --hostname cors_attack -p 5003:5003 CORS
 docker run --name redirect --hostname redirect -p 5004:5004 URL_redirect
 ```
-### Stop the Docker containesrs
+### Stop the Docker containers
 To stop the running containers, if using docker-compose, run the following command:
 ```
 docker-compose down
