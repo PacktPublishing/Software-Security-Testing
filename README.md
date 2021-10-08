@@ -38,24 +38,22 @@ To build each lab without using the tar files provided, follow these steps:
 
 ### Build the Docker images
 ```
-docker build -t Common_attacs 'Common_attacks' 
-docker build -t Session_puzzling 'Session Puzzling Lab'
-docker build -t CORS 'CORS'
-docker build -t LDAP 'LDAP Injection Lab'
-docker build -t Padding_oracle_attack 'Padding Oracle Lab'
-docker build -t URL_redirect 'URL Redirect Lab'
+docker build -t common_attacs Common\ Web\ Vulnerabilities\ Lab/Common_attacks/
+docker build -t session_puzzling Session\ Puzzling\ Lab/SessionPuzzle/
+docker build -t cors Cross\ Origin\ Resource\ Sharing\ Lab/CORS/
+docker build -t ldap LDAP\ Injection\ Lab/Ldap-injection/
+docker build -t url_redirect URL\ Redirect\ Lab/Url-redirection/
 ```
 
 ### Start the Docker containers
 ```
-docker run --name common_attacks --hostname common_attacks -p 80:80 Common_attacs
-docker run --name session_puzzle --hostname session_puzzle -p 5000:5000 Session_puzzling
-docker run --name oracle_padding --hostname oracle_padding -p 5001:5001 Padding_oracle_attack
-docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 LDAP
-docker run --name cors_attack --hostname cors_attack -p 5003:5003 CORS
-docker run --name redirect --hostname redirect -p 5004:5004 URL_redirect
+docker run --name common_attacks --hostname common_attacks -p 80:80 common_attacs
+docker run --name session_puzzle --hostname session_puzzle -p 5000:5000 session_puzzling
+docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 ldap
+docker run --name cors_attack --hostname cors_attack -p 5003:5003 cors
+docker run --name redirect --hostname redirect -p 5004:5004 url_redirect
 ```
-Stop the Docker container
+### Stop the Docker containers
 To stop the running containers, if using docker-compose, run the following command:
 ```
 docker-compose down
@@ -65,5 +63,6 @@ To stop each container individually use the following command:
 docker stop container_name
 docker rm container_name
 ```
-Note
+
+# Note
 These labs were build to demonstrate security issues. Please make sure to stop the labs once you have completed course exercises.
