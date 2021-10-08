@@ -38,52 +38,56 @@ docker pull cyberacademylabs/common_web_attacks
 docker pull cyberacademylabs/session_puzzling
 ```
 ```
-docker pull cyberacademylabs/ldap_injection
-```
-```
 docker pull cyberacademylabs/oracle_padding
 ```
 ```
-docker pull cyberacademylabs/url_redirect
+docker pull cyberacademylabs/ldap_injection
 ```
 ```
 docker pull cyberacademylabs/cors_attack
 ```
+```
+docker pull cyberacademylabs/url_redirect
+```
+
 After these steps, the Docker images will be pulled locally but the labs will not be active yet. Refer to the 'Starting the Docker containers' section to start the labs.
 
 ## Building the Docker images
 To build the labs from the Dockerfiles provided, use the following commands:
 ```
-docker build -t common_web_attacks Common\ Web\ Vulnerabilities\ Lab/Common_attacks/
+docker build -t cyberacademylabs/common_web_attacks Common\ Web\ Vulnerabilities\ Lab/Common_attacks/
 ```
 ```
-docker build -t session_puzzling Session\ Puzzling\ Lab/SessionPuzzle/
+docker build -t cyberacademylabs/session_puzzling Session\ Puzzling\ Lab/SessionPuzzle/
 ```
 ```
-docker build -t ldap_injection LDAP\ Injection\ Lab/Ldap-injection/
+docker build -t cyberacademylabs/ldap_injection LDAP\ Injection\ Lab/Ldap-injection/
 ```
 ```
-docker build -t cors_attack Cross\ Origin\ Resource\ Sharing\ Lab/CORS/
+docker build -t cyberacademylabs/cors_attack Cross\ Origin\ Resource\ Sharing\ Lab/CORS/
 ```
 ```
-docker build -t url_redirect URL\ Redirect\ Lab/Url-redirection/
+docker build -t cyberacademylabs/url_redirect URL\ Redirect\ Lab/Url-redirection/
 ```
 
 ## Starting the Docker containers
 ```
-docker run --name common_web_attacks --hostname common_attacks -p 80:80 common_web_attacks
+docker run --name common_web_attacks --hostname common_attacks -p 80:80 cyberacademy/common_web_attacks
 ```
 ```
-docker run --name session_puzzling --hostname session_puzzle -p 5000:5000 session_puzzling
+docker run --name session_puzzling --hostname session_puzzle -p 5000:5000 cyberacademylabs/session_puzzling
 ```
 ```
-docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 ldap_injection
+docker run --name oracle_padding --hostname oracle_padding -p 5001:5001 cyberacademylabs/oracle_padding
 ```
 ```
-docker run --name cors_attack --hostname cors_attack -p 5003:5003 cors_attack
+docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 cyberacademylabs/ldap_injection
 ```
 ```
-docker run --name url_redirect --hostname redirect -p 5004:5004 url_redirect
+docker run --name cors_attack --hostname cors_attack -p 5003:5003 cyberacademylabs/cors_attack
+```
+```
+docker run --name url_redirect --hostname redirect -p 5004:5004 cyberacademylabs/url_redirect
 ```
 ## Stopping the Docker containers
 To stop the running containers, use the following command:
@@ -94,3 +98,4 @@ docker rm container_name
 
 # Note
 These labs were build to demonstrate security issues. Please make sure to stop the labs once you have completed course exercises.
+
