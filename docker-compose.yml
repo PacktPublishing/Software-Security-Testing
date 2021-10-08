@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-    common_attacks:
-        image: common_attacks:1.1
-        hostname: common_attacks
+    common_web_attacks:
+        image: cyberacademylabs/common_web_attacks
+        hostname: common_web_attacks
         container_name: common_attacks
         ports:
             - "80:80"
@@ -12,7 +12,7 @@ services:
                 ipv4_address: 172.20.0.2
 
     session_puzzling:
-        image: session_puzzling:latest
+        image: cyberacademylabs/session_puzzling
         hostname: session_puzzle
         container_name: session_puzzle
         ports:
@@ -22,7 +22,7 @@ services:
                 ipv4_address: 172.20.0.3
 
     padding_oracle:
-        image: oracle_padding:latest
+        image: cyberacademylabs/oracle_padding
         hostname: oracle_padding
         container_name: oracle_padding
         ports:
@@ -32,7 +32,7 @@ services:
                 ipv4_address: 172.20.0.4
 
     ldap:
-        image: ldap_injection:latest
+        image: cyberacademylabs/ldap_injection
         hostname: ldap_injection
         container_name: ldap_injection
         ports:
@@ -42,7 +42,7 @@ services:
                 ipv4_address: 172.20.0.5
 
     cors:
-        image: cors:latest
+        image: cyberacademylabs/cors_attack
         hostname: cors_attack
         container_name: cors_attack
         ports:
@@ -52,9 +52,9 @@ services:
                 ipv4_address: 172.20.0.6
 
     url_redirect:
-        image: url_redirect:1.0
+        image: cyberacademylabs/url_redirect
         hostname: redirect
-        container_name: redirect
+        container_name: url_redirect
         ports:
             - "5004:5004"
         networks:
