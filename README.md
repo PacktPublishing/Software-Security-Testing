@@ -1,64 +1,92 @@
-# Installing Docker
-All labs in this repository are run using Docker containers. To download Docker, refer to their documentation pages: https://docs.docker.com/get-docker/.
-
 # Cloning the repository
-To clone the repository locally use the following command:
+To clone the repository locally, use the following command:
 ```
-git lfs clone https://github.com/PacktPublishing/Software-Security-Testing.git
+git clone https://github.com/PacktPublishing/Software-Security-Testing.git
 ```
+If you do not have Git installed, refer to their [installation pages](https://github.com/git-guides/install-git).
 
-If you do not have Git installed, refer to their installation pages: https://github.com/git-guides/install-git. Make sure to install git-lfs to ensure all files are properly cloned: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage.
+# Installing Docker
+All labs in this repository are run using Docker containers and can be pulled from [DockerHub](https://hub.docker.com/u/cyberacademylabs). To download Docker, refer to their [documentation pages](https://docs.docker.com/get-docker/). Installing [docker-compose](https://docs.docker.com/compose/install/) is also preferred.
 
-# Running the lab using the run.sh and docker-compose files
-
-### Loading Docker images
-Each lab is compressed in a tar image that can be easily imported as a Docker image. Note the following example:
+# Running the labs with docker-compose
+## Building and starting the labs
+The easiest way to get started is using docker-compose. First, change directory to the cloned repository:
 ```
-cd "LDAP Injection Lab"
-docker load -i ldap.tar
+cd Software-Security-Testing/
 ```
-
-In Linux based operating systems, this process is automated via the load_images.sh script. First make sure the file is an executable by running the following command:
-```
-chmod u+x load_images.sh
-```
-Then, run it to import all tar files as Docker images:
-```
-./load_images.sh
-```
-
-### Using docker-compose
-When all tar files are imported, all Docker labs can be started at once using the following command:
+Then run the following command:
 ```
 docker-compose up -d
 ```
+After this step, all labs will be up and ready to use. 
 
-# Building labs with Docker
-To build each lab without using the tar files provided, follow these steps:
-
-### Build the Docker images
-```
-docker build -t common_attacs Common\ Web\ Vulnerabilities\ Lab/Common_attacks/
-docker build -t session_puzzling Session\ Puzzling\ Lab/SessionPuzzle/
-docker build -t cors Cross\ Origin\ Resource\ Sharing\ Lab/CORS/
-docker build -t ldap LDAP\ Injection\ Lab/Ldap-injection/
-docker build -t url_redirect URL\ Redirect\ Lab/Url-redirection/
-```
-
-### Start the Docker containers
-```
-docker run --name common_attacks --hostname common_attacks -p 80:80 common_attacs
-docker run --name session_puzzle --hostname session_puzzle -p 5000:5000 session_puzzling
-docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 ldap
-docker run --name cors_attack --hostname cors_attack -p 5003:5003 cors
-docker run --name redirect --hostname redirect -p 5004:5004 url_redirect
-```
-### Stop the Docker containers
-To stop the running containers, if using docker-compose, run the following command:
+## Stopping the labs
+To stop the labs, use the following command:
 ```
 docker-compose down
 ```
-To stop each container individually use the following command:
+
+# Building the labs 
+Docker-compose pulls and builds all labs from DockerHub at once. The labs can be set up individually either by pulling them from DockerHub or by building them locally using the Dockerfiles provided in the GitHub repository. 
+
+## Pulling the labs from DockerHub
+Labs can be pulled from DockerHub individually as shown below:
+```
+docker pull cyberacademylabs/common_web_attacks
+```
+```
+docker pull cyberacademylabs/session_puzzling
+```
+```
+docker pull cyberacademylabs/ldap_injection
+```
+```
+docker pull cyberacademylabs/oracle_padding
+```
+```
+docker pull cyberacademylabs/url_redirect
+```
+```
+docker pull cyberacademylabs/cors_attack
+```
+After these steps, the Docker images will be pulled locally but the labs will not be active yet. Refer to the 'Starting the Docker containers' section to start the labs.
+
+## Building the Docker images
+To build the labs from the Dockerfiles provided, use the following commands:
+```
+docker build -t common_web_attacks Common\ Web\ Vulnerabilities\ Lab/Common_attacks/
+```
+```
+docker build -t session_puzzling Session\ Puzzling\ Lab/SessionPuzzle/
+```
+```
+docker build -t ldap_injection LDAP\ Injection\ Lab/Ldap-injection/
+```
+```
+docker build -t cors_attack Cross\ Origin\ Resource\ Sharing\ Lab/CORS/
+```
+```
+docker build -t url_redirect URL\ Redirect\ Lab/Url-redirection/
+```
+
+## Starting the Docker containers
+```
+docker run --name common_web_attacks --hostname common_attacks -p 80:80 common_web_attacks
+```
+```
+docker run --name session_puzzling --hostname session_puzzle -p 5000:5000 session_puzzling
+```
+```
+docker run --name ldap_injection --hostname ldap_injection -p 5002:5002 ldap_injection
+```
+```
+docker run --name cors_attack --hostname cors_attack -p 5003:5003 cors_attack
+```
+```
+docker run --name url_redirect --hostname redirect -p 5004:5004 url_redirect
+```
+## Stopping the Docker containers
+To stop the running containers, use the following command:
 ```
 docker stop container_name
 docker rm container_name
