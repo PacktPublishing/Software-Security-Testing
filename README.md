@@ -72,7 +72,7 @@ docker build -t cyberacademylabs/url_redirect URL\ Redirect\ Lab/Url-redirection
 
 ## Starting the Docker containers
 ```
-docker run --name common_web_attacks --hostname common_attacks -p 80:80 cyberacademy/common_web_attacks
+docker run --name common_web_attacks --hostname common_attacks -p 80:80 cyberacademylabs/common_web_attacks
 ```
 ```
 docker run --name session_puzzling --hostname session_puzzle -p 5000:5000 cyberacademylabs/session_puzzling
