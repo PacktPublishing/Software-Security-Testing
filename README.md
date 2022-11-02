@@ -99,7 +99,3 @@ docker rm container_name
 # Note
 These labs were build to demonstrate security issues. Please make sure to stop the labs once you have completed course exercises.
 
-### Download a free PDF
-
- <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
-<p align="center"> <a href="https://packt.link/free-ebook/9781803244358">https://packt.link/free-ebook/9781803244358 </a> </p>
